@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                             loadingPB.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this, "Login Successful..", Toast.LENGTH_SHORT).show();
                             //open MainActivity.
-                            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent i = new Intent(LoginActivity.this, OtpSendActivity.class);
                             startActivity(i);
                             finish();
                         } else {

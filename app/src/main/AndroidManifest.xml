@@ -15,6 +15,10 @@
         <activity
             android:name="com.deedash.firecrud.RegisterActivity"
             android:label="Register" />
+        <activity android:name=".OtpVerifyActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".OtpSendActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name="com.deedash.firecrud.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
