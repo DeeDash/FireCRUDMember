@@ -9,21 +9,18 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    //cretaing variables for edit text and textview, firebase auth, button and progress bar.
+    //creating variables for edit text and textview, firebase auth, button and progress bar.
     private TextInputEditText userNameEdt, passwordEdt, confirmPwdEdt;
-    private TextView loginTV;
-    private Button registerBtn;
     private FirebaseAuth mAuth;
     private ProgressBar loadingPB;
 
@@ -36,8 +33,8 @@ public class RegisterActivity extends AppCompatActivity {
         passwordEdt = findViewById(R.id.idEdtPassword);
         loadingPB = findViewById(R.id.idPBLoading);
         confirmPwdEdt = findViewById(R.id.idEdtConfirmPassword);
-        loginTV = findViewById(R.id.idTVLoginUser);
-        registerBtn = findViewById(R.id.idBtnRegister);
+        TextView loginTV = findViewById(R.id.idTVLoginUser);
+        Button registerBtn = findViewById(R.id.idBtnRegister);
         mAuth = FirebaseAuth.getInstance();
 
         //adding on click for login tv.
@@ -51,9 +48,9 @@ public class RegisterActivity extends AppCompatActivity {
             //hiding our progress bar.
             loadingPB.setVisibility(View.VISIBLE);
             //getting data fro =m our edit text.
-            String userName = userNameEdt.getText().toString();
-            String pwd = passwordEdt.getText().toString();
-            String cnfPwd = confirmPwdEdt.getText().toString();
+            String userName = Objects.requireNonNull(userNameEdt.getText()).toString();
+            String pwd = Objects.requireNonNull(passwordEdt.getText()).toString();
+            String cnfPwd = Objects.requireNonNull(confirmPwdEdt.getText()).toString();
             //checking if the password and confirm password is equal or not.
             if (!pwd.equals(cnfPwd)) {
                 Toast.makeText(RegisterActivity.this, "Please check both having same password..", Toast.LENGTH_SHORT).show();
